@@ -26,7 +26,6 @@ struct node* BuildOneTwoThree() {
 
 void printList(struct node* head) {
     // [1 => 2 => 3 => 4]
-
     struct node* current = head;
 
     printf("[");
@@ -72,15 +71,86 @@ int GetNth(struct node* head, int index) {
     return current->data;
 }
 
+void DeleteList(struct node** headRef) {
+    struct node* current = *headRef;
+    struct node* next;
+
+    while(current != NULL) {
+        next = current->next;
+        free(current);
+        current = next;
+    }
+
+    *headRef = NULL;
+
+
+}
+
+int Pop(struct node** headRef) {
+    struct node* head = *headRef;
+    assert(head != NULL);
+    int retVal = head->data;
+
+    *headRef = head->next;
+    free(head);
+
+    return retVal;
+}
+
+void InsertNth(struct node** headRef, int index, int data) {
+
+    struct node* current = *headRef;
+    if(index == 0) {
+        Push(headRef, data);
+        return;
+    }
+    int count = 0;
+    while(count < index-1 && current != NULL) { // get to place before the insert
+        current = current->next;
+        count++;
+    }
+    assert(current != NULL);
+    Push(&(current->next), data);
+}
+
+void SortedInsert(struct node** headRef, struct node* newNode) {
+
+    struct node* current = *headRef;
+    if(current == NULL || current->data >= newNode->data) {
+        newNode->next = *headRef;
+        *headRef = newNode;
+    } else {
+        while(current->next != NULL && current->next->data < newNode->data) {
+            current = current->next;
+        }
+        newNode->next = current->next;
+        current->next = newNode;
+    }
+
+}
+
 int main() {
 
     struct node* head = BuildOneTwoThree();
     printList(head);
-    // printf("%d", Count(head, 2));
+    // printf("%d\n", Count(head, 2));
     // printf("%d\n", GetNth(head, 0));
     // printf("%d\n", GetNth(head, 1));
     // printf("%d\n", GetNth(head, 2));
     // printf("%d\n", GetNth(head, 3));
+    //DeleteList(&head);
+    //Pop(&head);
+
+    // InsertNth(&head, 3, 9999);
+
+    // struct node* n1 = (struct node*) malloc(sizeof(struct node));
+    // n1->data = 210;
+    // n1->next = NULL;
+
+    // SortedInsert(&head, n1);
+
+    
+    printList(head);
 
     return 0;
 }
