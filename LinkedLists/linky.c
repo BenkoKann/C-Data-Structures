@@ -58,11 +58,29 @@ int Count(struct node* head, int num) {
     return count;
 }
 
+int GetNth(struct node* head, int index) {
+    assert(index >= 0); 
+    struct node* current = head;
+    int count = 0;
+    while(count < index && current != NULL) {
+        current = current->next;
+        count++;
+       // printf("%d", count);
+    }
+    assert(count == index); 
+    assert(current != NULL);
+    return current->data;
+}
+
 int main() {
 
     struct node* head = BuildOneTwoThree();
     printList(head);
-    printf("%d", Count(head, 2));
+    // printf("%d", Count(head, 2));
+    // printf("%d\n", GetNth(head, 0));
+    // printf("%d\n", GetNth(head, 1));
+    // printf("%d\n", GetNth(head, 2));
+    // printf("%d\n", GetNth(head, 3));
 
     return 0;
 }
