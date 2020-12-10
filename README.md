@@ -1,4 +1,4 @@
-v# C-Data-Structures
+# C-Data-Structures
 Implementation of data structures in c
 
 ## definition of linked list
