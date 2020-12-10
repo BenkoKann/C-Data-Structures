@@ -2,6 +2,9 @@
 - Implementation of data structures in C
 - Based off of this source: [LinkedListProblems](http://cslibrary.stanford.edu/105/LinkedListProblems.pdf)
 
+## Linked List
+<details><summary>Implementation</summary>
+  
 ## definition of linked list
   ```c
   struct node {
@@ -9,6 +12,7 @@
   struct node* next;
   };
   ```
+
 ### 1. Count()
 ```c
 /*
@@ -67,3 +71,5 @@ rearranges pointers to insert it into the list.
 void SortedInsert(struct node** headRef, struct node* newNode) {
 // Your code...
 ```
+
+</details>
