@@ -1,6 +1,6 @@
 # C-Data-Structures
-Implementation of data structures in c
-Based off of this source: [LinkedListProblems](http://cslibrary.stanford.edu/105/LinkedListProblems.pdf)
+- Implementation of data structures in C
+- Based off of this source: [LinkedListProblems](http://cslibrary.stanford.edu/105/LinkedListProblems.pdf)
 
 ## definition of linked list
   ```c
