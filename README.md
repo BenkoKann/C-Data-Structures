@@ -72,4 +72,11 @@ void SortedInsert(struct node** headRef, struct node* newNode) {
 // Your code...
 ```
 
+### 7. Append()
+```c
+// Append 'b' onto the end of 'a', and then set 'b' to NULL.
+void Append(struct node** aRef, struct node** bRef) {
+// Your code...
+```
+
 </details>
