@@ -74,9 +74,7 @@ void SortedInsert(struct node** headRef, struct node* newNode) {
 
 ### 7. SortedInsert()
 ```c
-Write an InsertSort() function which given a list, rearranges its nodes so they are sorted in
-increasing order. It should use SortedInsert().
-// Given a list, change it to be in sorted order (using SortedInsert()).
+// Given a list, rearrange its nodes so they are sorted in increasing order (using SortedInsert()).
 void InsertSort(struct node** headRef) { // Your code
 ```
 
