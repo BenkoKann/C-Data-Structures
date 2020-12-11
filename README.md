@@ -72,7 +72,15 @@ void SortedInsert(struct node** headRef, struct node* newNode) {
 // Your code...
 ```
 
-### 7. Append()
+### 7. SortedInsert()
+```c
+Write an InsertSort() function which given a list, rearranges its nodes so they are sorted in
+increasing order. It should use SortedInsert().
+// Given a list, change it to be in sorted order (using SortedInsert()).
+void InsertSort(struct node** headRef) { // Your code
+```
+
+### 8. Append()
 ```c
 // Append 'b' onto the end of 'a', and then set 'b' to NULL.
 void Append(struct node** aRef, struct node** bRef) {
