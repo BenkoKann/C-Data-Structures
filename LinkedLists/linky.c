@@ -129,6 +129,30 @@ void SortedInsert(struct node** headRef, struct node* newNode) {
 
 }
 
+void SortedInsert2(struct node** headRef, struct node* newNode) {
+    struct node dummy;
+    struct node* current = &dummy;
+    dummy.next = *headRef;
+
+    while(current->next != NULL && current->next->data < newNode->data) {
+        current = current->next;
+    }
+    newNode->next = current->next;
+    current->next = newNode;    
+    *headRef = dummy.next;
+}
+
+void SortedInsert3(struct node** headRef, struct node* newNode) {
+    struct node** currentRef = headRef;
+
+    while(*currentRef != NULL && (*currentRef)->data<newNode->data) {
+        currentRef = &((*currentRef)->next);
+    }
+
+    newNode->next = *currentRef;
+    *currentRef = newNode;
+}
+
 int main() {
 
     struct node* head = BuildOneTwoThree();
@@ -144,10 +168,10 @@ int main() {
     // InsertNth(&head, 3, 9999);
 
     // struct node* n1 = (struct node*) malloc(sizeof(struct node));
-    // n1->data = 210;
+    // n1->data = 0;
     // n1->next = NULL;
 
-    // SortedInsert(&head, n1);
+    // SortedInsert3(&head, n1);
 
     
     printList(head);
