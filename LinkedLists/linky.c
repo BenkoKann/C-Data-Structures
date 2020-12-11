@@ -153,9 +153,25 @@ void SortedInsert3(struct node** headRef, struct node* newNode) {
     *currentRef = newNode;
 }
 
+void Append(struct node** aRef, struct node** bRef) {
+    if(*aRef == NULL) {
+        *aRef = *bRef;
+        return;
+    }
+    struct node* current = *aRef;
+    while(current->next != NULL) {
+        current = current->next;
+    }
+    current->next = *bRef;
+    *bRef = NULL;
+}
+
+
+
 int main() {
 
     struct node* head = BuildOneTwoThree();
+    struct node* h2 = BuildOneTwoThree();
     printList(head);
     // printf("%d\n", Count(head, 2));
     // printf("%d\n", GetNth(head, 0));
@@ -173,7 +189,7 @@ int main() {
 
     // SortedInsert3(&head, n1);
 
-    
+    Append(&head, &h2);
     printList(head);
 
     return 0;
